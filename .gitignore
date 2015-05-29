@@ -11,3 +11,4 @@
 figure/
 local.R
 cache/*
+.Rproj.user

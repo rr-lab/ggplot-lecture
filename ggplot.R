@@ -301,5 +301,3 @@ scale_fill_gradient(low="green", high="red")
 ## ggsave(file = "/path/to/figure/filename.eps")
 ## ggsave(file = "/path/to/figure/filename.jpg")
 ## ggsave(file = "/path/to/figure/filename.pdf")
-
-
