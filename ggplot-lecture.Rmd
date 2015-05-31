@@ -469,6 +469,60 @@ ggsave(file = "filename.pdf") # preferred format for final publication images
 
 ```
 
+This is just the beginning, you can do much more complicated things:
+
+```{r}
+
+install.packages("gridExtra", repos="http://cran.rstudio.com/")
+library(gridExtra)
+
+seg <- read.csv("soil-data.csv")
+seg$humidity <- 221.0 - (3.96 * seg$environment)
+seg$das <- substr(seg$image, start = 4, stop = 5)
+seg$treatment <- substr(seg$image, start = 11, stop = 12)
+
+scatter <- ggplot(data = seg, aes(x = direction, y = humidity)) +
+  geom_point(aes(colour=treatment), size=2, alpha=0.7) +
+  ylim(35, 80)+
+  geom_density2d(aes(color=treatment))+
+  ylab("Moisture content [%]") + 
+  xlab("Root direction [°]") +
+  theme_bw() +
+  theme(legend.position=c(1,1),legend.justification=c(1,1))
+
+histogram_x <- ggplot(data = seg, aes(direction)) +
+  geom_density(aes(colour = treatment, fill = treatment, alpha = 0.7)) +
+  xlab("Root Direction [º]") +
+  theme_bw() +
+  theme(legend.position = "none") 
+
+histogram_y <- ggplot(data = seg, aes(humidity)) +
+  geom_density(aes(colour = treatment, fill = treatment, alpha = 0.7)) +
+  xlab("Moisture content [%]") +
+  xlim(35, 80) +
+  coord_flip() +
+  theme_bw() +
+  theme(legend.position = "none") 
+
+empty <- ggplot()+geom_point(aes(1,1), colour="white") +
+     theme(                              
+       plot.background = element_blank(), 
+       panel.grid.major = element_blank(), 
+       panel.grid.minor = element_blank(), 
+       panel.border = element_blank(), 
+       panel.background = element_blank(),
+       axis.title.x = element_blank(),
+       axis.title.y = element_blank(),
+       axis.text.x = element_blank(),
+       axis.text.y = element_blank(),
+       axis.ticks = element_blank()
+     )
+
+grid.arrange(histogram_x, empty, scatter, histogram_y, ncol=2, nrow=2, widths=c(3.5, 1), heights=c(1, 3.5))
+
+```
+
+
 ## Further help
 
 - You've just scratched the surface with ggplot2.
