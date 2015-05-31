@@ -1,19 +1,8 @@
 # Introduction to ggplot2
 
-Author: [Karthik Ram](mailto:karthik.ram+ggplot2@gmail.com)
+Author: [Ruben Rellan Alvarez](mailto:rubenrellan@gmail.com)
+Adapated from [Karthik Ram](https://github.com/karthikram/ggplot-lecture/blob/master/ggplot.pdf?raw=true) Spring 2013 R seminar in Integrative Biology at UC Berkeley.
 
-Here are my [slides](https://github.com/karthikram/ggplot-lecture/blob/master/ggplot.pdf?raw=true) for the Spring 2013 R seminar in Integrative Biology at UC Berkeley. The source file is `ggplot.Rnw`. Feel free to modify and reuse as necessary.
-
-[![slides](slides.png)](https://github.com/karthikram/ggplot-lecture/blob/master/ggplot.pdf?raw=true)
-
-To generate the pdf presentation locally:
-
-```r
-knitr('ggplot.Rnw')
-system("pdflatex ggplot.tex")
-```
-
-* [R code from the deck](https://github.com/karthikram/ggplot-lecture/blob/master/ggplot.R)
 
 ## Suggested readings
 * [Elegant graphics for data analysis](http://www.amazon.com/ggplot2-Ele gant-Graphics-Data-Analysis/dp/0387981403/)  
