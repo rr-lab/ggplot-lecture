@@ -523,16 +523,6 @@ grid.arrange(histogram_x, empty, scatter, histogram_y, ncol=2, nrow=2, widths=c(
 ```
 
 
-## Further help
-
-- You've just scratched the surface with ggplot2.
-- Practice
-- Read the docs (either locally in \texttt{R} or at 
-- http://docs.ggplot2.org/current/
-- Work together
-- stackedit
-![](images/chang_book.png) ![](images/hadley.png)
-
 
 
 
